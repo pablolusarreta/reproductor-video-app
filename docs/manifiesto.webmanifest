@@ -1,0 +1,47 @@
+{
+    "name": "Reproductor de MP4 App",
+    "short_name": "Reproductor de MP4 App",
+    "description": "Aplicación web progresiva para reproducir videos MP4.",
+    "start_url": "./",
+    "display": "standalone",
+    "theme_color": "#000",
+    "background_color": "#000",
+    "icons": [
+        {
+            "src": "./img/icono512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "./img/icono257.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "./img/icono128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "./img/icono64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "./img/icono32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        
+        {
+            "src": "./img/icono24.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "./img/icono16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        }
+    ] 
+}
