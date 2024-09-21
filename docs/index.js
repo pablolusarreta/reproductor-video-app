@@ -17,7 +17,3 @@ videoInput.addEventListener('change', function () {
         }
     }
 });
-const final = ()=>{
-    
-}
- 
