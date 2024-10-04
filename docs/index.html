@@ -8,27 +8,81 @@
     <meta name="description" content="Reproductor MP4, Webm y Ogg">
     <meta name="author" content="Pablo Lusarreta">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reproductor MP4</title>
-    <link rel="stylesheet" type="text/css" href="index.css" media="screen,print" />
     <link rel="shortcut icon" href="img/favicon.ico" />
-    <script defer src="index.js"></script>
-    <script type="module">
+    <title>Reproductor MP4</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            place-items: center;
+            overflow-x: hidden;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            cursor: default;
+            background-color: black;
+        }
 
-    </script>
+        #reproductor {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+        }
 
+        #fichero {
+            position: fixed;
+            top: -10vh;
+            width: 100vw;
+            height: 110vh;
+            padding: 0;
+            opacity: 0;
+            background-color: #000;
+            transition: all 0.7s
+        }
+
+        #pie {
+            position: fixed;
+            bottom: 4px;
+            width: 100vw;
+            right: 35px;
+            font-size: 8px;
+            text-align: right;
+            color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
 </head>
 
 <body>
-
     <video id="reproductor" controls></video>
-    
-    <button id="abrir">Abrir</button>
     <input type="file" id="fichero" accept="video/mp4,video/ogg,video/webm,video/x-matroska">
 
     <footer id="pie">
         Pablo Lusarreta &#64; 2024
     </footer>
-
+    <script defer>
+        const videoInput = document.getElementById('fichero');
+        const videoPlayer = document.getElementById('reproductor');
+        const pie = document.getElementById('pie');
+        videoInput.addEventListener('change', function () {
+            document.documentElement.requestFullscreen()
+            const file = this.files[0];
+            if (file) {
+                videoInput.style.display = "none"
+                pie.style.display = "none"
+                const videoURL = URL.createObjectURL(file);
+                videoPlayer.src = videoURL;
+                videoPlayer.load();
+                videoPlayer.play();
+                videoPlayer.onended = () => {
+                    location.reload()
+                }
+            }
+        });
+        videoInput.addEventListener('mouseover', () => {
+            videoInput.style.opacity = "1"
+        });
+        videoInput.addEventListener('mouseout', () => {
+            videoInput.style.opacity = "0"
+        });
+    </script>
 </body>
 
 </html>
